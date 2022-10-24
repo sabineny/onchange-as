@@ -1,24 +1,33 @@
+import { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
+
+  const[fname, setfname ]= useState();
+  const handler = e =>
+  {
+    setfname (e.target.value);
+    
+  }
+
+  const [ lname, setlname] = useState();
+  const handle = e=>
+  {
+    setlname (e.target.value);
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+<>
+    <div className='inputs'>
+    <input type="text" placeholder='firstName' value={fname} onChange ={handler} />
+    
     </div>
+    <div>
+    <input type="text" placeholder='lastname' value={lname} onChange = {handle} />
+    </div>
+    <h3> firstName:{fname}</h3>
+    <h3> lastName:{lname} </h3>
+    </>
   );
 }
 
